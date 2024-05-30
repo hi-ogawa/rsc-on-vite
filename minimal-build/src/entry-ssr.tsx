@@ -63,5 +63,11 @@ async function streamToString(stream: ReadableStream<Uint8Array>) {
 }
 
 async function importReactServer(): Promise<typeof import("./entry-server")> {
-	return $__global.reactServer.ssrLoadModule("/src/entry-server") as any;
+	let mod: any;
+	if (import.meta.env.DEV) {
+		mod = await $__global.reactServer.ssrLoadModule("/src/entry-server");
+	} else {
+		mod = await import("/dist/server/index.js" as string);
+	}
+	return mod;
 }
