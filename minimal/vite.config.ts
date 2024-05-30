@@ -1,4 +1,4 @@
-import { type InlineConfig, createServer, defineConfig } from "vite";
+import { type InlineConfig, build, createServer, defineConfig } from "vite";
 import { $__global } from "./src/global";
 
 export default defineConfig((_env) => ({
@@ -25,6 +25,7 @@ export default defineConfig((_env) => ({
 			name: "react-server:dev",
 			apply: "serve",
 			async buildStart() {
+				$__global.clientReferences = new Set();
 				$__global.reactServer = await createServer(reactServerViteConfig);
 			},
 			async buildEnd() {
@@ -35,10 +36,37 @@ export default defineConfig((_env) => ({
 		{
 			name: "react-server:build",
 			apply: (_config, env) => env.command === "build" && !env.isSsrBuild,
-			async buildStart() {},
-			async closeBundle() {},
+			async buildStart() {
+				$__global.clientReferences = new Set();
+				console.log("<<< [1/3] SERVER BUILD >>>");
+				await build(reactServerViteConfig);
+				console.log("<<< [2/3] BROWSER BUILD >>>");
+			},
+			async closeBundle() {
+				console.log("<<< [3/3] SSR BUILD >>>");
+				await build({
+					build: {
+						ssr: true,
+						outDir: "dist/ssr",
+						rollupOptions: {
+							input: {
+								index: "/src/entry-ssr",
+							},
+						},
+					},
+				});
+			},
 		},
 	],
+	// browser build config
+	build: {
+		outDir: "dist/browser",
+		rollupOptions: {
+			input: {
+				index: "/src/entry-browser",
+			},
+		},
+	},
 }));
 
 // vite config for 2nd vite server/build
@@ -63,12 +91,23 @@ const reactServerViteConfig: InlineConfig = {
 			],
 		},
 	},
+	build: {
+		ssr: true,
+		outDir: "dist/server",
+		rollupOptions: {
+			input: {
+				index: "/src/entry-server",
+			},
+		},
+	},
 	plugins: [
 		{
 			name: "client-reference",
 			transform(code, id, _options) {
+				$__global.clientReferences.delete(id);
 				// client reference transform
 				if (/^(("use client")|('use client'))/.test(code)) {
+					$__global.clientReferences.add(id);
 					const matches = code.matchAll(/export function (\w+)\(/g);
 					const result = [
 						`import { registerClientReference as $$register } from "/src/runtime-server"`,
