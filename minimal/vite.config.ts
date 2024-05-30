@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import react from "@vitejs/plugin-react";
 import {
 	type InlineConfig,
 	type Manifest,
@@ -13,6 +14,8 @@ import { $__global } from "./src/global";
 export default defineConfig((_env) => ({
 	clearScreen: false,
 	plugins: [
+		react(),
+
 		// run ssr entry as middleware
 		{
 			name: "react-server:ssr",
@@ -49,12 +52,24 @@ export default defineConfig((_env) => ({
 				.map((id) => `"${id}": () => import("${id}"),\n`)
 				.join("")} }`;
 		}),
+		createVirtualPlugin("entry-browser", () => {
+			if ($__global.reactServer) {
+				return `
+					${(react as any).preambleCode.replace("__BASE__", "/")};
+					import("/src/entry-browser");
+				`;
+			} else {
+				return `
+					import "/src/entry-browser";
+				`;
+			}
+		}),
 		createVirtualPlugin("ssr-assets", () => {
 			let ssrAssets: any;
 			if ($__global.reactServer) {
 				// dev
 				ssrAssets = {
-					bootstrapModules: ["/@vite/client", "/src/entry-browser"],
+					bootstrapModules: ["/@id/__x00__virtual:entry-browser"],
 				};
 			} else {
 				// build
@@ -62,7 +77,7 @@ export default defineConfig((_env) => ({
 					fs.readFileSync("dist/browser/.vite/manifest.json", "utf-8"),
 				);
 				ssrAssets = {
-					bootstrapModules: [manifest["src/entry-browser.tsx"].file],
+					bootstrapModules: ["/" + manifest["virtual:entry-browser"].file],
 				};
 			}
 			return `export default ${JSON.stringify(ssrAssets)}`;
@@ -111,7 +126,7 @@ export default defineConfig((_env) => ({
 		outDir: "dist/browser",
 		rollupOptions: {
 			input: {
-				index: "/src/entry-browser",
+				index: "virtual:entry-browser",
 			},
 		},
 	},
