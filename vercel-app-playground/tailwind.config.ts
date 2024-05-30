@@ -2,9 +2,7 @@ import colors from 'tailwindcss/colors';
 import { Config } from 'tailwindcss';
 
 export default {
-  content: [
-    './src/**/*.{js,ts,jsx,tsx,mdx}',
-  ],
+  content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
   future: {
     hoverOnlyWhenSupported: true,
   },
