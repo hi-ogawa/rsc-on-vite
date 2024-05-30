@@ -1,6 +1,6 @@
 import type http from "node:http";
 import ReactDOMServer from "react-dom/server.edge";
-import type { StreamData } from "./entry-server";
+import type { FlightData } from "./entry-server";
 import { $__global } from "./global";
 import { createMemoImport } from "./runtime-client";
 
@@ -18,7 +18,7 @@ export default async function handler(
 	const { default: ReactClient } = await import(
 		"react-server-dom-webpack/client.edge"
 	);
-	const node = await ReactClient.createFromReadableStream<StreamData>(
+	const node = await ReactClient.createFromReadableStream<FlightData>(
 		flightStream1,
 		{
 			ssrManifest: {},
