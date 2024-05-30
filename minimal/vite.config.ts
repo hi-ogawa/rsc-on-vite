@@ -12,6 +12,7 @@ import {
 import { $__global } from "./src/global";
 
 export default defineConfig((_env) => ({
+	appType: "custom",
 	clearScreen: false,
 	plugins: [
 		react(),
@@ -20,6 +21,7 @@ export default defineConfig((_env) => ({
 		{
 			name: "react-server:ssr",
 			configureServer(server) {
+				$__global.ssrServer = server;
 				return () => {
 					server.middlewares.use(async (req, res, next) => {
 						const mod = await server.ssrLoadModule("/src/entry-ssr");
@@ -168,7 +170,7 @@ const reactServerViteConfig: InlineConfig = {
 	},
 	plugins: [
 		{
-			name: "client-reference",
+			name: "rsc-client-reference",
 			transform(code, id, _options) {
 				// client reference transform
 				// (in practice, it's critical to post-process `id` to match how Vite handles them on browser)
@@ -185,6 +187,21 @@ const reactServerViteConfig: InlineConfig = {
 						),
 					].join(";\n");
 					return { code: result, map: null };
+				}
+			},
+		},
+		{
+			name: "rsc-update",
+			handleHotUpdate(ctx) {
+				if (
+					ctx.modules.every(
+						(m) => m.id && !$__global.clientReferences.has(m.id),
+					)
+				) {
+					$__global.ssrServer.ws.send({
+						type: "custom",
+						event: "rsc-update",
+					});
 				}
 			},
 		},
