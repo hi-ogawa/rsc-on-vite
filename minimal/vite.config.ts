@@ -44,6 +44,43 @@ export default defineConfig((_env) => ({
 				};
 			},
 		},
+		// setup/teardown 2nd vite server from main vite server
+		{
+			name: "react-server:dev",
+			apply: "serve",
+			async buildStart() {
+				$__global.clientReferences = new Set();
+				$__global.reactServer = await createServer(reactServerViteConfig);
+			},
+			async buildEnd() {
+				await $__global.reactServer?.close();
+			},
+		},
+		// orchestrate three builds from a single browser build
+		{
+			name: "react-server:build",
+			apply: (_config, env) => env.command === "build" && !env.isSsrBuild,
+			async buildStart() {
+				$__global.clientReferences = new Set();
+				console.log("<<< [1/3] SERVER BUILD >>>");
+				await build(reactServerViteConfig);
+				console.log("<<< [2/3] BROWSER BUILD >>>");
+			},
+			async closeBundle() {
+				console.log("<<< [3/3] SSR BUILD >>>");
+				await build({
+					build: {
+						ssr: true,
+						outDir: "dist/ssr",
+						rollupOptions: {
+							input: {
+								index: "/src/entry-ssr",
+							},
+						},
+					},
+				});
+			},
+		},
 		// virtual modules to switch dev/build behavior
 		createVirtualPlugin("client-references", () => {
 			// build only
@@ -82,43 +119,6 @@ export default defineConfig((_env) => ({
 			}
 			return `export default ${JSON.stringify(ssrAssets)}`;
 		}),
-		// setup/teardown 2nd vite server from main vite server
-		{
-			name: "react-server:dev",
-			apply: "serve",
-			async buildStart() {
-				$__global.clientReferences = new Set();
-				$__global.reactServer = await createServer(reactServerViteConfig);
-			},
-			async buildEnd() {
-				await $__global.reactServer?.close();
-			},
-		},
-		// orchestrate three builds from a single browser build
-		{
-			name: "react-server:build",
-			apply: (_config, env) => env.command === "build" && !env.isSsrBuild,
-			async buildStart() {
-				$__global.clientReferences = new Set();
-				console.log("<<< [1/3] SERVER BUILD >>>");
-				await build(reactServerViteConfig);
-				console.log("<<< [2/3] BROWSER BUILD >>>");
-			},
-			async closeBundle() {
-				console.log("<<< [3/3] SSR BUILD >>>");
-				await build({
-					build: {
-						ssr: true,
-						outDir: "dist/ssr",
-						rollupOptions: {
-							input: {
-								index: "/src/entry-ssr",
-							},
-						},
-					},
-				});
-			},
-		},
 	],
 	// browser build config
 	build: {
