@@ -9,6 +9,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="[color-scheme:dark]">
+      <head>
+        <meta charSet="UTF-8" />
+        <title>RSC on Vite</title>
+        <link rel="icon" href="/favicon.ico" />
+      </head>
       <body className="overflow-y-scroll bg-gray-1100 bg-[url('/grid.svg')] pb-36">
         <GlobalNav />
 
