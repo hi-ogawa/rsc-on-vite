@@ -4,7 +4,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "start": "vite preview",
+    "preview": "vite preview",
+    "tsc": "tsc -b",
+    "tsc-dev": "tsc -b --watch --preserveWatchOutput",
     "lint": "prettier --cache --write --ignore-unknown ."
   },
   "dependencies": {
