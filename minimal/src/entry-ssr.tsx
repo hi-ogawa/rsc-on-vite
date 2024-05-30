@@ -5,12 +5,20 @@ import { $__global } from "./global";
 import { createMemoImport } from "./runtime-client";
 
 export default async function handler(
-	_req: http.IncomingMessage,
+	req: http.IncomingMessage,
 	res: http.ServerResponse,
 ) {
+	const url = new URL(req.url!, "https://test.local");
+
 	// react server (react node -> flight)
 	const reactServer = await importReactServer();
 	const flightStream = await reactServer.handler();
+	if (url.searchParams.has("__flight")) {
+		return res
+			.setHeader("content-type", "text/x-component;charset=utf-8")
+			.end(await streamToString(flightStream));
+	}
+
 	const [flightStream1, flightStream2] = flightStream.tee();
 
 	// react client (flight -> react node)

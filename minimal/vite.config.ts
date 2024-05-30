@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import react from "@vitejs/plugin-react";
 import {
 	type InlineConfig,
 	type Manifest,
@@ -11,12 +12,16 @@ import {
 import { $__global } from "./src/global";
 
 export default defineConfig((_env) => ({
+	appType: "custom",
 	clearScreen: false,
 	plugins: [
+		react(),
+
 		// run ssr entry as middleware
 		{
 			name: "react-server:ssr",
 			configureServer(server) {
+				$__global.ssrServer = server;
 				return () => {
 					server.middlewares.use(async (req, res, next) => {
 						const mod = await server.ssrLoadModule("/src/entry-ssr");
@@ -41,32 +46,6 @@ export default defineConfig((_env) => ({
 				};
 			},
 		},
-		// virtual modules to switch dev/build behavior
-		createVirtualPlugin("client-references", () => {
-			// build only
-			const ids = [...$__global.clientReferences];
-			return `export default { ${ids
-				.map((id) => `"${id}": () => import("${id}"),\n`)
-				.join("")} }`;
-		}),
-		createVirtualPlugin("ssr-assets", () => {
-			let ssrAssets: any;
-			if ($__global.reactServer) {
-				// dev
-				ssrAssets = {
-					bootstrapModules: ["/@vite/client", "/src/entry-browser"],
-				};
-			} else {
-				// build
-				const manifest: Manifest = JSON.parse(
-					fs.readFileSync("dist/browser/.vite/manifest.json", "utf-8"),
-				);
-				ssrAssets = {
-					bootstrapModules: [manifest["src/entry-browser.tsx"].file],
-				};
-			}
-			return `export default ${JSON.stringify(ssrAssets)}`;
-		}),
 		// setup/teardown 2nd vite server from main vite server
 		{
 			name: "react-server:dev",
@@ -104,6 +83,44 @@ export default defineConfig((_env) => ({
 				});
 			},
 		},
+		// virtual modules to switch dev/build behavior
+		createVirtualPlugin("client-references", () => {
+			// build only
+			const ids = [...$__global.clientReferences];
+			return `export default { ${ids
+				.map((id) => `"${id}": () => import("${id}"),\n`)
+				.join("")} }`;
+		}),
+		createVirtualPlugin("entry-browser", () => {
+			if ($__global.reactServer) {
+				return `
+					${(react as any).preambleCode.replace("__BASE__", "/")};
+					import("/src/entry-browser");
+				`;
+			} else {
+				return `
+					import "/src/entry-browser";
+				`;
+			}
+		}),
+		createVirtualPlugin("ssr-assets", () => {
+			let ssrAssets: any;
+			if ($__global.reactServer) {
+				// dev
+				ssrAssets = {
+					bootstrapModules: ["/@id/__x00__virtual:entry-browser"],
+				};
+			} else {
+				// build
+				const manifest: Manifest = JSON.parse(
+					fs.readFileSync("dist/browser/.vite/manifest.json", "utf-8"),
+				);
+				ssrAssets = {
+					bootstrapModules: ["/" + manifest["virtual:entry-browser"].file],
+				};
+			}
+			return `export default ${JSON.stringify(ssrAssets)}`;
+		}),
 	],
 	// browser build config
 	build: {
@@ -111,7 +128,7 @@ export default defineConfig((_env) => ({
 		outDir: "dist/browser",
 		rollupOptions: {
 			input: {
-				index: "/src/entry-browser",
+				index: "virtual:entry-browser",
 			},
 		},
 	},
@@ -153,7 +170,7 @@ const reactServerViteConfig: InlineConfig = {
 	},
 	plugins: [
 		{
-			name: "client-reference",
+			name: "rsc-client-reference",
 			transform(code, id, _options) {
 				// client reference transform
 				// (in practice, it's critical to post-process `id` to match how Vite handles them on browser)
@@ -170,6 +187,21 @@ const reactServerViteConfig: InlineConfig = {
 						),
 					].join(";\n");
 					return { code: result, map: null };
+				}
+			},
+		},
+		{
+			name: "rsc-update",
+			handleHotUpdate(ctx) {
+				if (
+					ctx.modules.every(
+						(m) => m.id && !$__global.clientReferences.has(m.id),
+					)
+				) {
+					$__global.ssrServer.ws.send({
+						type: "custom",
+						event: "rsc-update",
+					});
 				}
 			},
 		},

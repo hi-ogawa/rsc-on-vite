@@ -1,4 +1,4 @@
-import { Counter } from "./_client";
+import { Counter, Hydrated } from "./_client";
 
 export default function Page() {
 	return (
@@ -15,6 +15,7 @@ export default function Page() {
 				<div>
 					<div>server random: {Math.random().toString(36).slice(2)}</div>
 					<Counter />
+					<Hydrated />
 				</div>
 			</body>
 		</html>
