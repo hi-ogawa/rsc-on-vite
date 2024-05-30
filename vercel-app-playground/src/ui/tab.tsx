@@ -1,9 +1,9 @@
 'use client';
 
 import type { Item } from '#/ui/tab-group';
+import { Link } from '@hiogawa/react-server/client';
 import clsx from 'clsx';
-import Link from 'next/link';
-import { useSelectedLayoutSegment } from 'next/navigation';
+// import { useSelectedLayoutSegment } from 'next/navigation';
 
 export const Tab = ({
   path,
@@ -14,7 +14,9 @@ export const Tab = ({
   parallelRoutesKey?: string;
   item: Item;
 }) => {
-  const segment = useSelectedLayoutSegment(parallelRoutesKey);
+  // TODO
+  // const segment = useSelectedLayoutSegment(parallelRoutesKey);
+  const segment = null;
 
   const href = item.slug ? path + '/' + item.slug : path;
   const isActive =
