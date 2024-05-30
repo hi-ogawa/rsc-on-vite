@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOMClient from "react-dom/client";
-import type { StreamData } from "./entry-server";
+import type { FlightData } from "./entry-server";
 import { createMemoImport } from "./runtime-client";
 
 async function main() {
@@ -9,7 +9,7 @@ async function main() {
 	const { default: ReactClient } = await import(
 		"react-server-dom-webpack/client.browser"
 	);
-	const node = await ReactClient.createFromReadableStream<StreamData>(
+	const node = await ReactClient.createFromReadableStream<FlightData>(
 		(globalThis as any).__flightStreamScript,
 	);
 

@@ -1,11 +1,11 @@
 import ReactServer from "react-server-dom-webpack/server.edge";
 import Page from "./routes/page";
 
-export type StreamData = React.ReactNode;
+export type FlightData = React.ReactNode;
 
 export async function handler() {
 	const node = <Page />;
-	const stream = ReactServer.renderToReadableStream<StreamData>(
+	const stream = ReactServer.renderToReadableStream<FlightData>(
 		node,
 		createBundlerConfig(),
 	);
