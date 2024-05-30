@@ -2,8 +2,7 @@
 
 import { demos, type Item } from '#/lib/demos';
 import { NextLogoDark } from '#/ui/next-logo';
-import { Link } from '@hiogawa/react-server/client';
-// import { useSelectedLayoutSegment } from 'next/navigation';
+import { Link, useRouter } from '@hiogawa/react-server/client';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
 import clsx from 'clsx';
 import { useState } from 'react';
@@ -81,10 +80,8 @@ function GlobalNavItem({
   item: Item;
   close: () => false | void;
 }) {
-  // TODO
-  // const segment = useSelectedLayoutSegment();
-  // const isActive = item.slug === segment;
-  const isActive = false;
+  const pathname = useRouter((s) => s.location.pathname);
+  const isActive = item.slug === pathname.split('/')[1];
 
   return (
     <Link
