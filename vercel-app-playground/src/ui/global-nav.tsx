@@ -81,6 +81,7 @@ function GlobalNavItem({
   item: Item;
   close: () => false | void;
 }) {
+  // TODO
   // const segment = useSelectedLayoutSegment();
   // const isActive = item.slug === segment;
   const isActive = false;

@@ -1,10 +1,12 @@
 'use client';
 
 import React, { Suspense } from 'react';
-import { usePathname, useSearchParams } from 'next/navigation';
+// import { usePathname, useSearchParams } from 'next/navigation';
 
 function Params() {
-  const searchParams = useSearchParams()!;
+  // TODO
+  // const searchParams = useSearchParams()!;
+  const searchParams = new URLSearchParams();
 
   return searchParams.toString().length !== 0 ? (
     <div className="px-2 text-gray-500">
@@ -36,7 +38,9 @@ function Params() {
 }
 
 export function AddressBar() {
-  const pathname = usePathname();
+  // TODO
+  // const pathname = usePathname();
+  const pathname = '/';
 
   return (
     <div className="flex items-center gap-x-2 p-3.5 lg:px-5 lg:py-3">
