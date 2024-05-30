@@ -1,12 +1,10 @@
 'use client';
 
+import { useRouter } from '@hiogawa/react-server/client';
 import React, { Suspense } from 'react';
-// import { usePathname, useSearchParams } from 'next/navigation';
 
 function Params() {
-  // TODO
-  // const searchParams = useSearchParams()!;
-  const searchParams = new URLSearchParams();
+  const searchParams = new URLSearchParams(useRouter((s) => s.location.search));
 
   return searchParams.toString().length !== 0 ? (
     <div className="px-2 text-gray-500">
@@ -38,9 +36,7 @@ function Params() {
 }
 
 export function AddressBar() {
-  // TODO
-  // const pathname = usePathname();
-  const pathname = '/';
+  const pathname = useRouter((s) => s.location.pathname);
 
   return (
     <div className="flex items-center gap-x-2 p-3.5 lg:px-5 lg:py-3">
