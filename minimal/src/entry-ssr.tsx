@@ -26,11 +26,12 @@ export default async function handler(
 	);
 
 	// react dom ssr (react node -> html)
+	const ssrAssets = await import("virtual:ssr-assets" as string);
 	const ssrStream = await ReactDOMServer.renderToReadableStream(node, {
-		bootstrapModules: ["/@vite/client", "/src/entry-browser"],
+		bootstrapModules: ssrAssets.default.bootstrapModules,
 	});
 
-	// inject flight stream
+	// no stream
 	let ssrString = await streamToString(ssrStream);
 	const flightString = await streamToString(flightStream2);
 	ssrString = ssrString.replace(
@@ -62,5 +63,11 @@ async function streamToString(stream: ReadableStream<Uint8Array>) {
 }
 
 async function importReactServer(): Promise<typeof import("./entry-server")> {
-	return $__global.reactServer.ssrLoadModule("/src/entry-server") as any;
+	let mod: any;
+	if (import.meta.env.DEV) {
+		mod = await $__global.reactServer.ssrLoadModule("/src/entry-server");
+	} else {
+		mod = await import("/dist/server/index.js" as string);
+	}
+	return mod;
 }

@@ -1,11 +1,22 @@
 export function createMemoImport() {
-	const referenceMap = new Map<string, Promise<unknown>>();
-	return (id: string) => {
-		let mod = referenceMap.get(id);
-		if (!mod) {
-			mod = import(/* @vite-ignore */ id);
-			referenceMap.set(id, mod);
+	return memoize(importClientReference);
+}
+
+async function importClientReference(id: string) {
+	if (import.meta.env.DEV) {
+		return import(/* @vite-ignore */ id);
+	} else {
+		const mod = await import("virtual:client-references" as string);
+		return mod.default[id]();
+	}
+}
+
+function memoize<K, V>(f: (k: K) => V) {
+	const cache = new Map<K, V>();
+	return (k: K): V => {
+		if (!cache.has(k)) {
+			cache.set(k, f(k));
 		}
-		return mod;
+		return cache.get(k)!;
 	};
 }
