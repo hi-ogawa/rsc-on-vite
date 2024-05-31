@@ -97,6 +97,7 @@ export const demos: { name: string; items: Item[] }[] = [
         name: 'Patterns',
         slug: 'patterns',
         description: 'A collection of useful App Router patterns',
+        ok: true,
       },
       {
         name: 'Client Component Hooks',
