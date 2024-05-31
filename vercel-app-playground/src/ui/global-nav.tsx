@@ -93,7 +93,7 @@ function GlobalNavItem({
           'text-gray-400 hover:bg-gray-800': !isActive,
           'text-white': isActive,
         },
-        !item.ok && 'cursor-not-allowed opacity-80',
+        !item.ok && 'cursor-not-allowed line-through opacity-80',
       )}
     >
       {item.name}

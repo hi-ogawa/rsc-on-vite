@@ -2,11 +2,15 @@ import { getCategories } from '#/api/categories/getCategories';
 import { Boundary } from '#/ui/boundary';
 import { ClickCounter } from '#/ui/click-counter';
 import { TabGroup } from '#/ui/tab-group';
-import type { LayoutProps } from '@hiogawa/react-server/server';
+import React from 'react';
 
-const title = 'Nested Layouts';
+const title = 'Not Found';
 
-export default async function Layout({ children }: LayoutProps) {
+export default async function Layout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const categories = await getCategories();
 
   return (
@@ -14,7 +18,7 @@ export default async function Layout({ children }: LayoutProps) {
       <title>{title}</title>
       <div className="flex justify-between">
         <TabGroup
-          path="/layouts"
+          path="/not-found"
           items={[
             {
               text: 'Home',
@@ -23,6 +27,10 @@ export default async function Layout({ children }: LayoutProps) {
               text: x.name,
               slug: x.slug,
             })),
+            {
+              text: 'Category That Does Not Exist',
+              slug: 'does-not-exist',
+            },
           ]}
         />
 

@@ -35,16 +35,19 @@ export const demos: { name: string; items: Item[] }[] = [
         slug: 'loading',
         description:
           'Create meaningful Loading UI for specific parts of an app',
+        ok: true,
       },
       {
         name: 'Error',
         slug: 'error-handling',
         description: 'Create Error UI for specific parts of an app',
+        ok: true,
       },
       {
         name: 'Not Found',
         slug: 'not-found',
         description: 'Create Not Found UI for specific parts of an app',
+        ok: true,
       },
     ],
   },
@@ -82,6 +85,7 @@ export const demos: { name: string; items: Item[] }[] = [
         slug: 'context',
         description:
           'Pass context between Client Components that cross Server/Client Component boundary',
+        ok: true,
       },
     ],
   },
