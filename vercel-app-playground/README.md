@@ -11,5 +11,5 @@ pnpm preview
 
 # deploy to vercel edge
 pnpm vc-build
-pnpm vc-deploy
+pnpm vc-release
 ```
