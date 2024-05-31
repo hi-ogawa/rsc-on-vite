@@ -10,6 +10,7 @@
     "preview": "vite preview",
     "vc-build": "SSR_ENTRY=/src/adapters/vercel-edge vite build && bash misc/vercel-edge/build.sh",
     "vc-release": "vercel deploy --prebuilt --prod .",
+    "vc-release-staging": "vercel deploy --prebuilt .",
     "test-e2e": "playwright test",
     "test-e2e-preview": "E2E_PREVIEW=1 playwright test",
     "tsc": "tsc -b",
