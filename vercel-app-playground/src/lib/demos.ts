@@ -40,6 +40,7 @@ export const demos: { name: string; items: Item[] }[] = [
         name: 'Error',
         slug: 'error-handling',
         description: 'Create Error UI for specific parts of an app',
+        ok: true,
       },
       {
         name: 'Not Found',
