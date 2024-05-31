@@ -2,16 +2,6 @@ import { Boundary } from '#/ui/boundary';
 import { TabGroup } from '#/ui/tab-group';
 import React from 'react';
 
-const title = 'Styling';
-
-export const metadata = {
-  title,
-  openGraph: {
-    title,
-    images: [`/api/og?title=${title}`],
-  },
-};
-
 const items = [
   {
     text: 'Global CSS',
@@ -40,6 +30,7 @@ const items = [
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className="space-y-9">
+      <title>Styling</title>
       <TabGroup
         path="/styling"
         items={[
