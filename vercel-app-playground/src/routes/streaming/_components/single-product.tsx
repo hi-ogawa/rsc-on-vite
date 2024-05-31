@@ -5,11 +5,6 @@ import { ProductRating } from '#/ui/product-rating';
 export const SingleProduct = async ({ data }: { data: Promise<Response> }) => {
   const product = (await data.then((res) => res.json())) as Product;
 
-  // TODO
-  // Get the cart count from the users cookies and pass it to the client
-  // AddToCart component
-  // const cartCount = cookies().get('_cart_count')?.value || '0';
-
   return (
     <div className="grid grid-cols-4 gap-6">
       <div className="col-span-full lg:col-span-1">
