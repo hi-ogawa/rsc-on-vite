@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Product } from '#/app/api/products/product';
 import { ProductBestSeller } from '#/ui/product-best-seller';
 import { ProductEstimatedArrival } from '#/ui/product-estimated-arrival';

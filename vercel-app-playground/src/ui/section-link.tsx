@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { Link } from '@hiogawa/react-server/client';
 
 export const SectionLink = ({
   children,

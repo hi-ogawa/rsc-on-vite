@@ -1,5 +1,5 @@
+import { Link } from '@hiogawa/react-server/client';
 import clsx from 'clsx';
-import Link from 'next/link';
 
 export const TabNavItem = ({
   children,

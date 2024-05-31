@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import type { Review } from '#/app/api/reviews/review';
 import { ProductRating } from '#/ui/product-rating';
 

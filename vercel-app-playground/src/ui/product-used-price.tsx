@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Product } from '#/app/api/products/product';
 import { dinero, toUnit, up, type DineroSnapshot } from 'dinero.js';
 

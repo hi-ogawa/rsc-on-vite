@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Product } from '#/app/api/products/product';
 import { ProductCurrencySymbol } from '#/ui/product-currency-symbol';
 import { ProductDeal } from '#/ui/product-deal';

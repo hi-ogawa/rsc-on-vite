@@ -9,6 +9,7 @@ export default function Footer({
 }) {
   return (
     <div className="col-start-2 col-end-4 mt-28 flex items-center justify-between">
+      {/* @ts-expect-error */}
       <style jsx>
         {`
           .power-by {
