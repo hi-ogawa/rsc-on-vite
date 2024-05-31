@@ -46,6 +46,7 @@ export const demos: { name: string; items: Item[] }[] = [
         name: 'Not Found',
         slug: 'not-found',
         description: 'Create Not Found UI for specific parts of an app',
+        ok: true,
       },
     ],
   },
