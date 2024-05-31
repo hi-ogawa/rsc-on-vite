@@ -14,6 +14,7 @@ export default function RootLayout({
         <meta charSet="UTF-8" />
         <title>RSC on Vite</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       <body className="overflow-y-scroll bg-gray-1100 bg-[url('/grid.svg')] pb-36">
         <Hydrated />
