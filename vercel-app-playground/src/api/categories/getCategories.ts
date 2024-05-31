@@ -2,6 +2,7 @@ import type { Category } from './category';
 import { createError } from '@hiogawa/react-server/server';
 
 export async function getCategories({ parent }: { parent?: string } = {}) {
+  // TODO: not working on stackblitz?
   const res = await fetch(
     `https://app-playground-api.vercel.app/api/categories${
       parent ? `?parent=${parent}` : ''
