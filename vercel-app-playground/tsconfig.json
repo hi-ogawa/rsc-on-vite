@@ -1,0 +1,28 @@
+{
+  "include": [
+    "src",
+    "vite.config.ts",
+    "tailwind.config.ts",
+    "playwright.config.ts",
+    "e2e"
+  ],
+  "compilerOptions": {
+    "types": ["vite/client", "react/experimental"],
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "paths": {
+      "#/*": ["./src/*"]
+    }
+  }
+}
