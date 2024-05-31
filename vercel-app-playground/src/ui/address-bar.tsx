@@ -1,6 +1,7 @@
 'use client';
 
 import { useRouter } from '@hiogawa/react-server/client';
+import clsx from 'clsx';
 import React, { Suspense } from 'react';
 
 function Params() {
@@ -37,6 +38,7 @@ function Params() {
 
 export function AddressBar() {
   const pathname = useRouter((s) => s.location.pathname);
+  const isPending = useRouter((s) => s.isPending);
 
   return (
     <div className="flex items-center gap-x-2 p-3.5 lg:px-5 lg:py-3">
@@ -87,6 +89,14 @@ export function AddressBar() {
           <Params />
         </Suspense>
       </div>
+      <div className="flex-1"></div>
+      {/* based on https://github.com/hi-ogawa/unocss-preset-antd/blob/94473f43c99481c9cfa0fe2ae25d6baf2b4e86f2/packages/lib/src/index.ts#L44-L46 */}
+      <div
+        className={clsx(
+          'size-5 animate-spin rounded-full border border-transparent border-t-current text-gray-100 transition duration-500',
+          isPending ? 'opacity-100' : 'opacity-0',
+        )}
+      />
     </div>
   );
 }
