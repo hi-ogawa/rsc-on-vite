@@ -35,6 +35,7 @@ export const demos: { name: string; items: Item[] }[] = [
         slug: 'loading',
         description:
           'Create meaningful Loading UI for specific parts of an app',
+        ok: true,
       },
       {
         name: 'Error',
