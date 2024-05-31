@@ -106,3 +106,5 @@ export const demos: { name: string; items: Item[] }[] = [
     ],
   },
 ];
+
+export const demoSlugs = demos.flatMap((e) => e.items.map((e) => e.slug));
