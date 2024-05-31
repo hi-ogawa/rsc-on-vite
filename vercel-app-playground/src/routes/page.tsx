@@ -25,12 +25,12 @@ export default function Page() {
                         'group block space-y-1.5 rounded-lg bg-gray-900 px-5 py-3',
                         item.ok
                           ? 'hover:bg-gray-800'
-                          : 'cursor-not-allowed opacity-80',
+                          : 'cursor-not-allowed line-through opacity-80',
                       )}
                     >
                       <div
                         className={clsx(
-                          'font-medium text-gray-200',
+                          'font-medium text-gray-200 group-hover:text-gray-50',
                           item.ok && 'group-hover:text-gray-50',
                         )}
                       >
