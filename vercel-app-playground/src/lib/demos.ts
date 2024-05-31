@@ -59,6 +59,7 @@ export const demos: { name: string; items: Item[] }[] = [
         slug: 'streaming',
         description:
           'Streaming data fetching from the server with React Suspense',
+        ok: true,
       },
       {
         name: 'Static Data',
