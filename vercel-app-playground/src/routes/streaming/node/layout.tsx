@@ -2,6 +2,7 @@ import { Boundary } from '#/ui/boundary';
 import React from 'react';
 import { CartCountProvider } from '../_components/cart-count-context';
 import { Header } from '../_components/header';
+import { cartCount } from '../_action';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -21,7 +22,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </ul>
       </div>
       <Boundary animateRerendering={false} labels={['Demo']} size="small">
-        <CartCountProvider initialCartCount={0}>
+        <CartCountProvider initialCartCount={cartCount}>
           <div className="space-y-10">
             <Header />
 

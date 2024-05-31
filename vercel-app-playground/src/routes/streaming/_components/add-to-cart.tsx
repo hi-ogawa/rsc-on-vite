@@ -2,10 +2,9 @@
 
 import { useTransition } from 'react';
 import { useCartCount } from './cart-count-context';
-import { routerRevalidate, useRouter } from '@hiogawa/react-server/client';
+import { addCartCount } from '../_action';
 
 export function AddToCart({ initialCartCount }: { initialCartCount: number }) {
-  const history = useRouter((s) => s.history);
   const [isPending, startTransition] = useTransition();
 
   const [, setOptimisticCartCount] = useCartCount();
@@ -13,20 +12,10 @@ export function AddToCart({ initialCartCount }: { initialCartCount: number }) {
   const addToCart = () => {
     setOptimisticCartCount(initialCartCount + 1);
 
-    // Normally you would also send a request to the server to add the item
-    // to the current users cart
-    // await fetch(`https://api.acme.com/...`);
-
     // Use a transition and isPending to create inline loading UI
-    startTransition(() => {
-      setOptimisticCartCount(null);
-
-      // Refresh the current route and fetch new data from the server without
-      // losing client-side browser or React state.
-      history.replace(window.location.href, routerRevalidate());
-
-      // We're working on more fine-grained data mutation and revalidation:
-      // https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions
+    startTransition(async () => {
+      const newCount = await addCartCount();
+      setOptimisticCartCount(newCount);
     });
   };
 
