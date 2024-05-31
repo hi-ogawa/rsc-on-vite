@@ -10,6 +10,8 @@
     "preview": "vite preview",
     "vc-build": "SSR_ENTRY=/src/adapters/vercel-edge vite build && bash misc/vercel-edge/build.sh",
     "vc-release": "vercel deploy --prebuilt --prod .",
+    "test-e2e": "playwright test",
+    "test-e2e-preview": "E2E_PREVIEW=1 playwright test",
     "tsc": "tsc -b",
     "tsc-dev": "tsc -b --watch --preserveWatchOutput",
     "lint": "prettier --cache --write --ignore-unknown ."
@@ -31,6 +33,7 @@
   "devDependencies": {
     "@hattip/adapter-node": "^0.0.44",
     "@hiogawa/vite-plugin-ssr-middleware": "latest",
+    "@playwright/test": "^1.44.1",
     "@tailwindcss/forms": "0.5.7",
     "@tailwindcss/typography": "0.5.12",
     "@types/ms": "0.7.34",

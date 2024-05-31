@@ -1,6 +1,7 @@
 import { AddressBar } from '#/ui/address-bar';
 import Byline from '#/ui/byline';
 import { GlobalNav } from '#/ui/global-nav';
+import { Hydrated } from '#/ui/hydrated';
 
 export default function RootLayout({
   children,
@@ -15,6 +16,7 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body className="overflow-y-scroll bg-gray-1100 bg-[url('/grid.svg')] pb-36">
+        <Hydrated />
         <GlobalNav />
 
         <div className="lg:pl-72">

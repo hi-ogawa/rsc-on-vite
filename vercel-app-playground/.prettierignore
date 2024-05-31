@@ -1,3 +1,4 @@
 pnpm-lock.yaml
 dist
 .vercel
+test-results
