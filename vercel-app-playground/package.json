@@ -14,7 +14,8 @@
     "test-e2e-preview": "E2E_PREVIEW=1 playwright test",
     "tsc": "tsc -b",
     "tsc-dev": "tsc -b --watch --preserveWatchOutput",
-    "lint": "prettier --cache --write --ignore-unknown ."
+    "lint": "prettier --cache --write --ignore-unknown .",
+    "lint-check": "prettier --cache --check --ignore-unknown ."
   },
   "dependencies": {
     "@heroicons/react": "2.1.3",
