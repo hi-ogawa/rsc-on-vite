@@ -1,20 +1,26 @@
-import { getCategories } from '#/api/categories/getCategories';
+import { getCategories, getCategory } from '#/api/categories/getCategories';
 import { Boundary } from '#/ui/boundary';
 import { ClickCounter } from '#/ui/click-counter';
 import { TabGroup } from '#/ui/tab-group';
-import type { LayoutProps } from '@hiogawa/react-server/server';
 
-export default async function Layout({ children }: LayoutProps) {
-  const categories = await getCategories();
+export default async function Layout({
+  children,
+  params,
+}: {
+  children: React.ReactNode;
+  params: { categorySlug: string };
+}) {
+  const category = await getCategory({ slug: params.categorySlug });
+  const categories = await getCategories({ parent: params.categorySlug });
 
   return (
     <div className="space-y-9">
       <div className="flex justify-between">
         <TabGroup
-          path="/layouts"
+          path={`/layouts/${category.slug}`}
           items={[
             {
-              text: 'Home',
+              text: 'All',
             },
             ...categories.map((x) => ({
               text: x.name,

@@ -1,9 +1,8 @@
 'use client';
 
 import type { Item } from '#/ui/tab-group';
-import { Link } from '@hiogawa/react-server/client';
+import { Link, useRouter } from '@hiogawa/react-server/client';
 import clsx from 'clsx';
-// import { useSelectedLayoutSegment } from 'next/navigation';
 
 export const Tab = ({
   path,
@@ -14,17 +13,11 @@ export const Tab = ({
   parallelRoutesKey?: string;
   item: Item;
 }) => {
-  // TODO
-  // const segment = useSelectedLayoutSegment(parallelRoutesKey);
-  const segment = null;
+  const pathname = useRouter((s) => s.location.pathname);
+  const segment = pathname.slice(path.length).split('/')[1];
 
   const href = item.slug ? path + '/' + item.slug : path;
-  const isActive =
-    // Example home pages e.g. `/layouts`
-    (!item.slug && segment === null) ||
-    segment === item.segment ||
-    // Nested pages e.g. `/layouts/electronics`
-    segment === item.slug;
+  const isActive = item.slug ? item.slug === segment : !segment;
 
   return (
     <Link
