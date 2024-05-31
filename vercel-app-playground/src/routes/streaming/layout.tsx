@@ -1,8 +1,6 @@
 import { TabGroup } from '#/ui/tab-group';
 import React from 'react';
 
-const title = 'Streaming';
-
 export default async function Layout({
   children,
 }: {
@@ -10,7 +8,7 @@ export default async function Layout({
 }) {
   return (
     <div className="space-y-9">
-      <div>{title}</div>
+      <title>Streaming</title>
       <div className="flex justify-between">
         <TabGroup
           path="/streaming"
@@ -19,12 +17,7 @@ export default async function Layout({
               text: 'Home',
             },
             {
-              text: 'Edge Runtime',
-              slug: 'edge/product/1',
-              segment: 'edge',
-            },
-            {
-              text: 'Node Runtime',
+              text: 'Test',
               slug: 'node/product/1',
               segment: 'node',
             },

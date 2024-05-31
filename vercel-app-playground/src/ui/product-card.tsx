@@ -1,14 +1,12 @@
-// @ts-nocheck
-import { Product } from '#/app/api/products/product';
+import { Product } from '#/api/products/product';
 import { ProductBestSeller } from '#/ui/product-best-seller';
 import { ProductEstimatedArrival } from '#/ui/product-estimated-arrival';
 import { ProductLowStockWarning } from '#/ui/product-low-stock-warning';
 import { ProductPrice } from '#/ui/product-price';
 import { ProductRating } from '#/ui/product-rating';
 import { ProductUsedPrice } from '#/ui/product-used-price';
+import { Link } from '@hiogawa/react-server/client';
 import { dinero, type DineroSnapshot } from 'dinero.js';
-import Image from 'next/image';
-import Link from 'next/link';
 
 export const ProductCard = ({
   product,
@@ -28,14 +26,12 @@ export const ProductCard = ({
               <ProductBestSeller />
             </div>
           ) : null}
-          <Image
+          <img
             src={`/${product.image}`}
             width={400}
             height={400}
             className="rounded-xl grayscale group-hover:opacity-80"
             alt={product.name}
-            placeholder="blur"
-            blurDataURL={product.imageBlur}
           />
         </div>
 

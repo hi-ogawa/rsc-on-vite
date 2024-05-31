@@ -2,14 +2,17 @@ import {
   RecommendedProducts,
   RecommendedProductsSkeleton,
 } from '#/routes/streaming/_components/recommended-products';
-import { Reviews, ReviewsSkeleton } from '#/routes/streaming/_components/reviews';
+import {
+  Reviews,
+  ReviewsSkeleton,
+} from '#/routes/streaming/_components/reviews';
 import { SingleProduct } from '#/routes/streaming/_components/single-product';
 import { Ping } from '#/ui/ping';
 import { Suspense } from 'react';
 
 export default async function Page({ params }: { params: { id: string } }) {
   return (
-    <div className="space-y-8 lg:space-y-14">
+    <div className="space-y-8 lg:space-y-14" key={params.id}>
       <SingleProduct
         data={fetch(
           `https://app-playground-api.vercel.app/api/products?id=${params.id}`,

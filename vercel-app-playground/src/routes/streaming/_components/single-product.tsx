@@ -1,21 +1,20 @@
-import { Pricing } from '#/app/streaming/_components/pricing';
-import type { Product } from '#/app/api/products/product';
+import { Pricing } from '#/routes/streaming/_components/pricing';
+import type { Product } from '#/api/products/product';
 import { ProductRating } from '#/ui/product-rating';
-import { cookies } from 'next/headers';
-import Image from 'next/image';
 
 export const SingleProduct = async ({ data }: { data: Promise<Response> }) => {
   const product = (await data.then((res) => res.json())) as Product;
 
+  // TODO
   // Get the cart count from the users cookies and pass it to the client
   // AddToCart component
-  const cartCount = cookies().get('_cart_count')?.value || '0';
+  // const cartCount = cookies().get('_cart_count')?.value || '0';
 
   return (
     <div className="grid grid-cols-4 gap-6">
       <div className="col-span-full lg:col-span-1">
         <div className="space-y-2">
-          <Image
+          <img
             src={`/${product.image}`}
             className="hidden rounded-lg grayscale lg:block"
             alt={product.name}
@@ -25,7 +24,7 @@ export const SingleProduct = async ({ data }: { data: Promise<Response> }) => {
 
           <div className="flex gap-x-2">
             <div className="w-1/3">
-              <Image
+              <img
                 src={`/${product.image}`}
                 className="rounded-lg grayscale"
                 alt={product.name}
@@ -34,7 +33,7 @@ export const SingleProduct = async ({ data }: { data: Promise<Response> }) => {
               />
             </div>
             <div className="w-1/3">
-              <Image
+              <img
                 src={`/${product.image}`}
                 className="rounded-lg grayscale"
                 alt={product.name}
@@ -43,7 +42,7 @@ export const SingleProduct = async ({ data }: { data: Promise<Response> }) => {
               />
             </div>
             <div className="w-1/3">
-              <Image
+              <img
                 src={`/${product.image}`}
                 className="rounded-lg grayscale"
                 alt={product.name}
@@ -69,7 +68,7 @@ export const SingleProduct = async ({ data }: { data: Promise<Response> }) => {
       </div>
 
       <div className="col-span-full lg:col-span-1">
-        <Pricing product={product} cartCount={cartCount} />
+        <Pricing product={product} cartCount={'0'} />
       </div>
     </div>
   );

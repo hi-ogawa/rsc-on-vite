@@ -1,17 +1,9 @@
 import { Boundary } from '#/ui/boundary';
-// import { cookies } from 'next/headers';
 import React from 'react';
 import { CartCountProvider } from '../_components/cart-count-context';
 import { Header } from '../_components/header';
 
-export const metadata = {
-  title: 'Streaming (Node Runtime)',
-};
-
 export default function Layout({ children }: { children: React.ReactNode }) {
-  // const cartCount = Number(cookies().get('_cart_count')?.value || '0');
-  const cartCount = 0;
-
   return (
     <>
       <div className="prose prose-sm prose-invert mb-8 max-w-none">
@@ -29,7 +21,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </ul>
       </div>
       <Boundary animateRerendering={false} labels={['Demo']} size="small">
-        <CartCountProvider initialCartCount={cartCount}>
+        <CartCountProvider initialCartCount={0}>
           <div className="space-y-10">
             <Header />
 

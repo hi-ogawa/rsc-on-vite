@@ -3,9 +3,8 @@ import {
   MagnifyingGlassIcon,
   ShoppingCartIcon,
 } from '@heroicons/react/24/solid';
-import Image from 'next/image';
-import Link from 'next/link';
 import { CartCount } from './cart-count';
+import { Link } from '@hiogawa/react-server/client';
 
 export function Header() {
   return (
@@ -40,7 +39,7 @@ export function Header() {
           </div>
         </div>
 
-        <Image
+        <img
           src="/prince-akachi-LWkFHEGpleE-unsplash.jpg"
           className="rounded-full"
           width={40}
