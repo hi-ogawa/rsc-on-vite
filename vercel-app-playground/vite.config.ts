@@ -14,7 +14,7 @@ export default defineConfig({
     vitePluginReactServer(),
     vitePluginLogger(),
     vitePluginSsrMiddleware({
-      entry: '/src/entry-server',
+      entry: process.env['SSR_ENTRY'] || '/src/adapters/node',
       preview: path.resolve('./dist/server/index.js'),
     }),
   ],

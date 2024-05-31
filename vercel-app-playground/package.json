@@ -8,6 +8,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
+    "vc-build": "SSR_ENTRY=/src/adapters/vercel-edge vite build && bash misc/vercel-edge/build.sh",
+    "vc-release": "vercel deploy --prebuilt --prod .",
     "tsc": "tsc -b",
     "tsc-dev": "tsc -b --watch --preserveWatchOutput",
     "lint": "prettier --cache --write --ignore-unknown ."
@@ -38,6 +40,7 @@
     "@vercel/git-hooks": "1.0.0",
     "@vitejs/plugin-react": "^4.2.1",
     "autoprefixer": "10.4.19",
+    "esbuild": "^0.21.4",
     "postcss": "8.4.38",
     "prettier": "3.2.5",
     "prettier-plugin-tailwindcss": "0.5.14",
