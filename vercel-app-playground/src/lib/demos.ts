@@ -2,6 +2,7 @@ export type Item = {
   name: string;
   slug: string;
   description?: string;
+  ok?: boolean;
 };
 
 export const demos: { name: string; items: Item[] }[] = [
@@ -12,6 +13,7 @@ export const demos: { name: string; items: Item[] }[] = [
         name: 'Nested Layouts',
         slug: 'layouts',
         description: 'Create UI that is shared across routes',
+        ok: true,
       },
       {
         name: 'Grouped Layouts',

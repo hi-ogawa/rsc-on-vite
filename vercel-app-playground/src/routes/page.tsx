@@ -1,5 +1,6 @@
 import { demos } from '#/lib/demos';
 import { Link } from '@hiogawa/react-server/client';
+import clsx from 'clsx';
 
 export default function Page() {
   return (
@@ -20,14 +21,29 @@ export default function Page() {
                     <Link
                       href={`/${item.slug}`}
                       key={item.name}
-                      className="group block space-y-1.5 rounded-lg bg-gray-900 px-5 py-3 hover:bg-gray-800"
+                      className={clsx(
+                        'group block space-y-1.5 rounded-lg bg-gray-900 px-5 py-3',
+                        item.ok
+                          ? 'hover:bg-gray-800'
+                          : 'cursor-not-allowed opacity-80',
+                      )}
                     >
-                      <div className="font-medium text-gray-200 group-hover:text-gray-50">
+                      <div
+                        className={clsx(
+                          'font-medium text-gray-200',
+                          item.ok && 'group-hover:text-gray-50',
+                        )}
+                      >
                         {item.name}
                       </div>
 
                       {item.description ? (
-                        <div className="line-clamp-3 text-sm text-gray-400 group-hover:text-gray-300">
+                        <div
+                          className={clsx(
+                            'line-clamp-3 text-sm text-gray-400',
+                            item.ok && 'group-hover:text-gray-300',
+                          )}
+                        >
                           {item.description}
                         </div>
                       ) : null}
