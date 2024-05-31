@@ -82,6 +82,7 @@ export const demos: { name: string; items: Item[] }[] = [
         slug: 'context',
         description:
           'Pass context between Client Components that cross Server/Client Component boundary',
+        ok: true,
       },
     ],
   },
