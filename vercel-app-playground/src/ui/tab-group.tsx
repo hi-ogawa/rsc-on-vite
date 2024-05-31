@@ -5,6 +5,7 @@ export type Item = {
   slug?: string;
   segment?: string;
   parallelRoutesKey?: string;
+  disabled?: boolean;
 };
 
 export const TabGroup = ({
