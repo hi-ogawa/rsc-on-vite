@@ -4,11 +4,14 @@ import { ClickCounter } from '#/ui/click-counter';
 import { TabGroup } from '#/ui/tab-group';
 import type { LayoutProps } from '@hiogawa/react-server/server';
 
+const title = 'Nested Layouts';
+
 export default async function Layout({ children }: LayoutProps) {
   const categories = await getCategories();
 
   return (
     <div className="space-y-9">
+      <title>{title}</title>
       <div className="flex justify-between">
         <TabGroup
           path="/layouts"

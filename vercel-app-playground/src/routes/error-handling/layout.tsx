@@ -13,6 +13,8 @@ export default async function Layout({
 
   return (
     <div className="space-y-9">
+      <title>Error Handling</title>
+
       <div className="flex justify-between">
         <TabGroup
           path="/error-handling"
