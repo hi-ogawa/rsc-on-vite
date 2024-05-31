@@ -108,6 +108,7 @@ export const demos: { name: string; items: Item[] }[] = [
         name: 'CSS and CSS-in-JS',
         slug: 'styling',
         description: 'Preview the supported styling solutions',
+        ok: true,
       },
     ],
   },
