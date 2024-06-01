@@ -4,11 +4,10 @@ import { PageProps, createError } from '@hiogawa/react-server/server';
 import React from 'react';
 import { Loading } from '../_loading';
 
-// TODO: fow now we wrap and revalidate suspense manually
-//       so it looks working similar at least...
-export default function PageWrapper(props: PageProps) {
+// TODO: userland `loading` implementation
+export default function PageWithLoading(props: PageProps) {
   return (
-    <React.Suspense fallback={<Loading />} key={props.url.pathname}>
+    <React.Suspense fallback={<Loading />}>
       <Page {...(props as any)} />
     </React.Suspense>
   );
