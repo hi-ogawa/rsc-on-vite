@@ -3,7 +3,8 @@
 import { demos, type Item } from '#/lib/demos';
 import { NextLogoDark } from '#/ui/next-logo';
 import { Link, useRouter } from '@hiogawa/react-server/client';
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
+import XMarkIcon from '@heroicons/react/24/solid/XMarkIcon';
+import Bars3Icon from '@heroicons/react/24/solid/Bars3Icon';
 import clsx from 'clsx';
 import { useState } from 'react';
 import Byline from './byline';

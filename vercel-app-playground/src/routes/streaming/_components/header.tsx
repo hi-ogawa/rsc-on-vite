@@ -1,8 +1,6 @@
 import { NextLogoLight } from '#/ui/next-logo';
-import {
-  MagnifyingGlassIcon,
-  ShoppingCartIcon,
-} from '@heroicons/react/24/solid';
+import MagnifyingGlassIcon from '@heroicons/react/24/solid/MagnifyingGlassIcon';
+import ShoppingCartIcon from '@heroicons/react/24/solid/ShoppingCartIcon';
 import { CartCount } from './cart-count';
 import { Link } from '@hiogawa/react-server/client';
 

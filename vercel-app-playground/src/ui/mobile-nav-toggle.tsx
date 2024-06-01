@@ -1,6 +1,7 @@
 'use client';
 
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
+import Bars3Icon from '@heroicons/react/24/solid/Bars3Icon';
+import XMarkIcon from '@heroicons/react/24/solid/XMarkIcon';
 import clsx from 'clsx';
 import React from 'react';
 
