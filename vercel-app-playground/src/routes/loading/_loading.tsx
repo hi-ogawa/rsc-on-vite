@@ -1,5 +1,3 @@
-'use client';
-
 import { SkeletonCard } from '#/ui/skeleton-card';
 
 export function Loading() {
