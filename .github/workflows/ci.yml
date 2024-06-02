@@ -28,3 +28,18 @@ jobs:
       - run: pnpm test-e2e
       - run: pnpm build
       - run: pnpm test-e2e-preview
+
+  remix-tutorial:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./remix-tutorial
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: corepack enable
+      - run: pnpm i
+      - run: pnpm lint-check
+      - run: pnpm tsc
