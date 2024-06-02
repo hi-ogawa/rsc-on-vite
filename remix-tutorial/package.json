@@ -1,0 +1,38 @@
+{
+  "name": "@hiogawa/react-server-example-starter",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "tsc": "tsc -b",
+    "tsc-dev": "pnpm tsc --watch --preserveWatchOutput",
+    "lint": "prettier -w --cache .",
+    "lint-check": "prettier -c --cache .",
+    "cf-build": "SSR_ENTRY=/src/adapters/cloudflare-workers.ts pnpm build && bash misc/cloudflare-workers/build.sh",
+    "cf-preview": "cd misc/cloudflare-workers && wrangler dev",
+    "cf-release": "cd misc/cloudflare-workers && wrangler deploy"
+  },
+  "dependencies": {
+    "@hiogawa/react-server": "0.2.1",
+    "react": "19.0.0-rc-8f3c0525f9-20240521",
+    "react-dom": "19.0.0-rc-8f3c0525f9-20240521",
+    "react-server-dom-webpack": "19.0.0-rc-8f3c0525f9-20240521"
+  },
+  "devDependencies": {
+    "@hiogawa/utils": "1.6.4-pre.2",
+    "@hiogawa/utils-node": "^0.0.1",
+    "@hiogawa/vite-plugin-ssr-middleware": "0.0.3",
+    "@types/react": "18.2.66",
+    "@types/react-dom": "18.2.22",
+    "@vitejs/plugin-react": "^4.2.1",
+    "esbuild": "^0.20.2",
+    "prettier": "^3.2.5",
+    "typescript": "^5.4.4",
+    "vite": "5.2.10",
+    "wrangler": "^3.53.0"
+  },
+  "packageManager": "pnpm@8.15.8+sha512.d1a029e1a447ad90bc96cd58b0fad486d2993d531856396f7babf2d83eb1823bb83c5a3d0fc18f675b2d10321d49eb161fece36fe8134aa5823ecd215feed392"
+}
