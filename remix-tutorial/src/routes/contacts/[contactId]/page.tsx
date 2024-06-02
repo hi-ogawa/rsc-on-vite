@@ -51,9 +51,8 @@ export default async function Contact(props: PageProps) {
           <Link href={`${props.url.pathname}/edit`}>
             <button>Edit</button>
           </Link>
-          {/* TODO: client component for `window.confirm` */}
-          <form action={actionDeleteContact}>
-            <input type="hidden" name="id" value={contact.id} />
+          {/* TODO: client component for `window.confirm`? */}
+          <form action={actionDeleteContact.bind(null, contact.id)}>
             <button type="submit">Delete</button>
           </form>
         </div>
@@ -63,7 +62,7 @@ export default async function Contact(props: PageProps) {
 }
 
 function Favorite(props: { contact: ContactRecord }) {
-  // TODO: optimistic
+  // TODO: useOptimistic?
   const favorite = props.contact.favorite;
   const id = props.contact.id;
 
@@ -77,7 +76,6 @@ function Favorite(props: { contact: ContactRecord }) {
         });
       }}
     >
-      <input type="hidden" name="id" value={props.contact.id} />
       <button
         aria-label={favorite ? "Remove from favorites" : "Add to favorites"}
         name="favorite"

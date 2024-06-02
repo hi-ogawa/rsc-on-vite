@@ -24,7 +24,6 @@ export default async function EditContact(props: PageProps) {
       key={contact.id}
       id="contact-form"
     >
-      <input type="hidden" name="id" value={contact.id} />
       <p>
         <span>Name</span>
         <input
