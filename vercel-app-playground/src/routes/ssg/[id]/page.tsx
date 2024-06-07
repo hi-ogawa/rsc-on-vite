@@ -16,7 +16,9 @@ export default async function Page({ params }: { params: { id: string } }) {
       </div>
       <div className="-order-1 col-span-full lg:order-none lg:col-span-2">
         <RenderingInfo
-          type={globalThis.process?.env?.['IS_PRERENDER'] ? 'ssg' : 'ssr'}
+          type={
+            globalThis.process?.env?.['REACT_SERVER_PRERENDER'] ? 'ssg' : 'ssr'
+          }
         />
       </div>
     </div>

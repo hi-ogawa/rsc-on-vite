@@ -13,7 +13,7 @@ export default defineConfig({
     react(),
     vitePluginReactServer({
       prerender: async () => {
-        process.env['IS_PRERENDER'] = '1';
+        process.env['REACT_SERVER_PRERENDER'] = '1';
         return ['/ssg/1', '/ssg/2'];
       },
     }),
