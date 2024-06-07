@@ -1,10 +1,5 @@
 import { RenderingInfo } from '#/ui/rendering-info';
 
-export async function generateStaticParams() {
-  // Generate two pages at build time and the rest (3-100) on-demand
-  return [{ id: '1' }, { id: '2' }];
-}
-
 export default async function Page({ params }: { params: { id: string } }) {
   const res = await fetch(
     `https://jsonplaceholder.typicode.com/posts/${params.id}`,
