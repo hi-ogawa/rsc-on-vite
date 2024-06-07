@@ -21,6 +21,7 @@ export const Tab = ({
 
   return (
     <Link
+      preload
       href={href}
       className={clsx(
         'rounded-lg px-3 py-1 text-sm font-medium',

@@ -65,6 +65,7 @@ export const demos: { name: string; items: Item[] }[] = [
         name: 'Static Data',
         slug: 'ssg',
         description: 'Generate static pages',
+        ok: true,
       },
       {
         name: 'Dynamic Data',

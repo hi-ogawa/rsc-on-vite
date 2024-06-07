@@ -31,6 +31,7 @@ export default function Page() {
         {items.map((item) => {
           return (
             <Link
+              preload
               href={`/patterns/${item.slug}`}
               key={item.name}
               className={clsx(

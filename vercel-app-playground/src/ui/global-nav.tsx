@@ -85,6 +85,8 @@ function GlobalNavItem({
 
   return (
     <Link
+      preload
+      // TODO: merge onClick handler
       onClick={close}
       href={`/${item.slug}`}
       className={clsx(
