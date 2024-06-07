@@ -20,6 +20,7 @@ export default function Page() {
                 {section.items.map((item) => {
                   return (
                     <Link
+                      preload
                       href={`/${item.slug}`}
                       key={item.name}
                       className={clsx(

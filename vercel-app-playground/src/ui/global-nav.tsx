@@ -85,6 +85,7 @@ function GlobalNavItem({
 
   return (
     <Link
+      preload
       onClick={close}
       href={`/${item.slug}`}
       className={clsx(
