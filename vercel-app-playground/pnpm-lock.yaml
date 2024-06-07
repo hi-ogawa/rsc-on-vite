@@ -12,8 +12,8 @@ importers:
         specifier: 2.1.3
         version: 2.1.3(react@19.0.0-rc.0)
       '@hiogawa/react-server':
-        specifier: 0.2.2
-        version: 0.2.2(react-dom@19.0.0-rc.0(react@19.0.0-rc.0))(react-server-dom-webpack@19.0.0-rc.0(react-dom@19.0.0-rc.0(react@19.0.0-rc.0))(react@19.0.0-rc.0)(webpack@5.91.0(esbuild@0.21.4)))(react@19.0.0-rc.0)(vite@5.2.12(@types/node@20.12.7)(terser@5.31.0))
+        specifier: 0.2.3
+        version: 0.2.3(react-dom@19.0.0-rc.0(react@19.0.0-rc.0))(react-server-dom-webpack@19.0.0-rc.0(react-dom@19.0.0-rc.0(react@19.0.0-rc.0))(react@19.0.0-rc.0)(webpack@5.91.0(esbuild@0.21.4)))(react@19.0.0-rc.0)(vite@5.2.12(@types/node@20.12.7)(terser@5.31.0))
       '@hiogawa/utils-node':
         specifier: ^0.0.1
         version: 0.0.1
@@ -526,8 +526,8 @@ packages:
     peerDependencies:
       react: '>= 16'
 
-  '@hiogawa/react-server@0.2.2':
-    resolution: {integrity: sha512-JMxL5Fw6cvVbm7ab6FU2qY2YoUyWQQ+pSoQVOnoMr/F5Mgokwn9BHp7Bf42vnKu2JxSgGJtxdGZhfcvmUI2teA==}
+  '@hiogawa/react-server@0.2.3':
+    resolution: {integrity: sha512-/k2t3XBSh2EcYhzwh2KRnle6R1A/rTMhvbxg5dpeIAPLYwhix67R+ebSsNy8wRle3eywBUnY8QO5T9SWAdlL8g==}
     peerDependencies:
       react: 19.0.0-rc.0
       react-dom: 19.0.0-rc.0
@@ -2086,7 +2086,7 @@ snapshots:
     dependencies:
       react: 19.0.0-rc.0
 
-  '@hiogawa/react-server@0.2.2(react-dom@19.0.0-rc.0(react@19.0.0-rc.0))(react-server-dom-webpack@19.0.0-rc.0(react-dom@19.0.0-rc.0(react@19.0.0-rc.0))(react@19.0.0-rc.0)(webpack@5.91.0(esbuild@0.21.4)))(react@19.0.0-rc.0)(vite@5.2.12(@types/node@20.12.7)(terser@5.31.0))':
+  '@hiogawa/react-server@0.2.3(react-dom@19.0.0-rc.0(react@19.0.0-rc.0))(react-server-dom-webpack@19.0.0-rc.0(react-dom@19.0.0-rc.0(react@19.0.0-rc.0))(react@19.0.0-rc.0)(webpack@5.91.0(esbuild@0.21.4)))(react@19.0.0-rc.0)(vite@5.2.12(@types/node@20.12.7)(terser@5.31.0))':
     dependencies:
       '@hiogawa/transforms': 0.0.0
       '@tanstack/history': 1.31.16
