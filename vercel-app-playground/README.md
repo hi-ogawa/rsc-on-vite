@@ -18,4 +18,4 @@ pnpm vc-release
 
 ### One-Click Deploy with Vercel
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fhi-ogawa%2Frsc-on-vite%2Ftree%2Fchore-vercel-deploy-button%2Fvercel-app-playground)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fhi-ogawa%2Frsc-on-vite%2Ftree%2Fmain%2Fvercel-app-playground)
