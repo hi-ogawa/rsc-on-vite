@@ -4,7 +4,7 @@
 		"dev": "vite",
 		"build": "vite build",
 		"preview": "vite preview",
-		"lint": "biome check --apply --linter-enabled=false ."
+		"lint": "biome check --write --linter-enabled=false ."
 	},
 	"dependencies": {
 		"react": "19.0.0-rc-38e3b23483-20240529",
@@ -18,5 +18,5 @@
 		"@vitejs/plugin-react": "^4.3.0",
 		"vite": "^5.2.12"
 	},
-	"packageManager": "pnpm@8.15.8+sha512.d1a029e1a447ad90bc96cd58b0fad486d2993d531856396f7babf2d83eb1823bb83c5a3d0fc18f675b2d10321d49eb161fece36fe8134aa5823ecd215feed392"
+	"packageManager": "pnpm@9.3.0+sha512.ee7b93e0c2bd11409c6424f92b866f31d3ea1bef5fbe47d3c7500cdc3c9668833d2e55681ad66df5b640c61fa9dc25d546efa54d76d7f8bf54b13614ac293631"
 }
