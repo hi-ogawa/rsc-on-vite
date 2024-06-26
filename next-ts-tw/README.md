@@ -1,5 +1,9 @@
 # next-ts-tw
 
+From [Next.js](https://github.com/vercel/next.js) to [`@hiogawa/react-server`](https://github.com/hi-ogawa/vite-plugins/tree/main/packages/react-server)
+
+[Try it on Stackblitz](https://stackblitz.com/github/hi-ogawa/rsc-on-vite/tree/main/next-ts-tw?file=app%2Fpage.tsx)
+
 ```sh
 # initially created with 15.0.0-canary.43
 $ pnpm dlx create-next-app@canary
@@ -12,8 +16,6 @@ $ pnpm dlx create-next-app@canary
 ✔ Would you like to use Turbopack for next dev? … No / Yes
 ✔ Would you like to customize the import alias (@/* by default)? … No / Yes
 ```
-
-From [Next.js](https://github.com/vercel/next.js) to [`@hiogawa/react-server`](https://github.com/hi-ogawa/vite-plugins/tree/main/packages/react-server)
 
 ```diff
 diff --git a/next-ts-tw/package.json b/next-ts-tw/package.json
