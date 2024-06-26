@@ -6,11 +6,11 @@ settings:
 
 dependencies:
   '@hiogawa/react-server':
-    specifier: latest
-    version: 0.2.6(react-dom@19.0.0-rc-8971381549-20240625)(react-server-dom-webpack@19.0.0-rc-8971381549-20240625)(react@19.0.0-rc-8971381549-20240625)(vite@5.3.1)
+    specifier: file:/home/hiroshi/code/personal/vite-plugins/packages/react-server/hiogawa-react-server-0.2.6.tgz
+    version: file:../../vite-plugins/packages/react-server/hiogawa-react-server-0.2.6.tgz(react-dom@19.0.0-rc-8971381549-20240625)(react-server-dom-webpack@19.0.0-rc-8971381549-20240625)(react@19.0.0-rc-8971381549-20240625)(vite@5.3.1)
   next:
-    specifier: npm:@hiogawa/react-server-next@latest
-    version: /@hiogawa/react-server-next@0.0.2(@hiogawa/react-server@0.2.6)(react@19.0.0-rc-8971381549-20240625)(vite@5.3.1)
+    specifier: file:/home/hiroshi/code/personal/vite-plugins/packages/react-server-next/hiogawa-react-server-next-0.0.2.tgz
+    version: file:../../vite-plugins/packages/react-server-next/hiogawa-react-server-next-0.0.2.tgz(@hiogawa/react-server@0.2.6)(react@19.0.0-rc-8971381549-20240625)(vite@5.3.1)
   react:
     specifier: rc
     version: 19.0.0-rc-8971381549-20240625
@@ -466,43 +466,6 @@ packages:
     os: [win32]
     requiresBuild: true
     optional: true
-
-  /@hiogawa/react-server-next@0.0.2(@hiogawa/react-server@0.2.6)(react@19.0.0-rc-8971381549-20240625)(vite@5.3.1):
-    resolution: {integrity: sha512-pI41NxVwMHlPxTKD5/mfN+XbFzUV9fS4SFEtEUCGoJvlMkVXwFjGyFkFOpQ0rPGyWyjJzQMEcfHFqx+JNNczew==}
-    hasBin: true
-    peerDependencies:
-      '@hiogawa/react-server': '*'
-      react: '*'
-      vite: '*'
-    dependencies:
-      '@hiogawa/react-server': 0.2.6(react-dom@19.0.0-rc-8971381549-20240625)(react-server-dom-webpack@19.0.0-rc-8971381549-20240625)(react@19.0.0-rc-8971381549-20240625)(vite@5.3.1)
-      '@hiogawa/vite-plugin-ssr-middleware': 0.0.3(vite@5.3.1)
-      '@vitejs/plugin-react': 4.3.1(vite@5.3.1)
-      react: 19.0.0-rc-8971381549-20240625
-      vite: 5.3.1(@types/node@20.14.9)
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
-  /@hiogawa/react-server@0.2.6(react-dom@19.0.0-rc-8971381549-20240625)(react-server-dom-webpack@19.0.0-rc-8971381549-20240625)(react@19.0.0-rc-8971381549-20240625)(vite@5.3.1):
-    resolution: {integrity: sha512-jwR7cZ1kznQvAiv69OxRY1mNfMpVNaymFsa/3/ab0U2GT14OvXR7725LUtV83VS95lj95HdoFR4mIma6hI59Gg==}
-    peerDependencies:
-      react: 19.0.0-rc-c21bcd627b-20240624
-      react-dom: 19.0.0-rc-c21bcd627b-20240624
-      react-server-dom-webpack: 19.0.0-rc-c21bcd627b-20240624
-      vite: '*'
-    dependencies:
-      '@hiogawa/transforms': 0.0.0
-      '@hiogawa/vite-plugin-ssr-middleware': 0.0.3(vite@5.3.1)
-      '@tanstack/history': 1.40.0
-      es-module-lexer: 1.5.4
-      fast-glob: 3.3.2
-      react: 19.0.0-rc-8971381549-20240625
-      react-dom: 19.0.0-rc-8971381549-20240625(react@19.0.0-rc-8971381549-20240625)
-      react-server-dom-webpack: 19.0.0-rc-8971381549-20240625(react-dom@19.0.0-rc-8971381549-20240625)(react@19.0.0-rc-8971381549-20240625)(webpack@5.92.1)
-      use-sync-external-store: 1.2.2(react@19.0.0-rc-8971381549-20240625)
-      vite: 5.3.1(@types/node@20.14.9)
-    dev: false
 
   /@hiogawa/transforms@0.0.0:
     resolution: {integrity: sha512-FxZMXDgtqN0kjBN94r2kUmE6RfgHIcFch2lgpL0vBKTykIstk9gDhPLFmU9OMZsbwo4Q92njs+4I4UqF9fEZ+A==}
@@ -2165,4 +2128,47 @@ packages:
 
   /zimmerframe@1.1.2:
     resolution: {integrity: sha512-rAbqEGa8ovJy4pyBxZM70hg4pE6gDgaQ0Sl9M3enG3I0d6H4XSAM3GeNGLKnsBpuijUow064sf7ww1nutC5/3w==}
+    dev: false
+
+  file:../../vite-plugins/packages/react-server-next/hiogawa-react-server-next-0.0.2.tgz(@hiogawa/react-server@0.2.6)(react@19.0.0-rc-8971381549-20240625)(vite@5.3.1):
+    resolution: {integrity: sha512-ggX2zHWPNVPNyUP4AT9TX07Le590yN8U95+/1KlEI+qPDbCDhUnQ7NN0ynrSBBzGAf+o2L6ZesU5j9hkNGe9Vg==, tarball: file:../../vite-plugins/packages/react-server-next/hiogawa-react-server-next-0.0.2.tgz}
+    id: file:../../vite-plugins/packages/react-server-next/hiogawa-react-server-next-0.0.2.tgz
+    name: '@hiogawa/react-server-next'
+    version: 0.0.2
+    hasBin: true
+    peerDependencies:
+      '@hiogawa/react-server': '*'
+      react: '*'
+      vite: '*'
+    dependencies:
+      '@hiogawa/react-server': file:../../vite-plugins/packages/react-server/hiogawa-react-server-0.2.6.tgz(react-dom@19.0.0-rc-8971381549-20240625)(react-server-dom-webpack@19.0.0-rc-8971381549-20240625)(react@19.0.0-rc-8971381549-20240625)(vite@5.3.1)
+      '@hiogawa/vite-plugin-ssr-middleware': 0.0.3(vite@5.3.1)
+      '@vitejs/plugin-react': 4.3.1(vite@5.3.1)
+      react: 19.0.0-rc-8971381549-20240625
+      vite: 5.3.1(@types/node@20.14.9)
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
+
+  file:../../vite-plugins/packages/react-server/hiogawa-react-server-0.2.6.tgz(react-dom@19.0.0-rc-8971381549-20240625)(react-server-dom-webpack@19.0.0-rc-8971381549-20240625)(react@19.0.0-rc-8971381549-20240625)(vite@5.3.1):
+    resolution: {integrity: sha512-iBhBs7iFMC8J41aRDgJ/rBDYSgI/YhBhNYajq3IbstHxclQremzgi89oImlRDv6AorkE5i4Yah1pn3kxdpFF3w==, tarball: file:../../vite-plugins/packages/react-server/hiogawa-react-server-0.2.6.tgz}
+    id: file:../../vite-plugins/packages/react-server/hiogawa-react-server-0.2.6.tgz
+    name: '@hiogawa/react-server'
+    version: 0.2.6
+    peerDependencies:
+      react: 19.0.0-rc-c21bcd627b-20240624
+      react-dom: 19.0.0-rc-c21bcd627b-20240624
+      react-server-dom-webpack: 19.0.0-rc-c21bcd627b-20240624
+      vite: '*'
+    dependencies:
+      '@hiogawa/transforms': 0.0.0
+      '@hiogawa/vite-plugin-ssr-middleware': 0.0.3(vite@5.3.1)
+      '@tanstack/history': 1.40.0
+      es-module-lexer: 1.5.4
+      fast-glob: 3.3.2
+      react: 19.0.0-rc-8971381549-20240625
+      react-dom: 19.0.0-rc-8971381549-20240625(react@19.0.0-rc-8971381549-20240625)
+      react-server-dom-webpack: 19.0.0-rc-8971381549-20240625(react-dom@19.0.0-rc-8971381549-20240625)(react@19.0.0-rc-8971381549-20240625)(webpack@5.92.1)
+      use-sync-external-store: 1.2.2(react@19.0.0-rc-8971381549-20240625)
+      vite: 5.3.1(@types/node@20.14.9)
     dev: false

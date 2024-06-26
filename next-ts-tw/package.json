@@ -10,8 +10,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@hiogawa/react-server": "latest",
-    "next": "npm:@hiogawa/react-server-next@latest",
+    "@hiogawa/react-server": "file:/home/hiroshi/code/personal/vite-plugins/packages/react-server/hiogawa-react-server-0.2.6.tgz",
+    "next": "file:/home/hiroshi/code/personal/vite-plugins/packages/react-server-next/hiogawa-react-server-next-0.0.2.tgz",
     "react": "rc",
     "react-dom": "rc",
     "react-server-dom-webpack": "rc"
