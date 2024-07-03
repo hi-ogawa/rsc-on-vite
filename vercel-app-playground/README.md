@@ -1,3 +1,7 @@
+> [!note]
+> See https://github.com/hi-ogawa/next-app-router-playground/pull/1
+> for the similar attempt based on Next.js drop-in-replacement package `@hiogawa/react-server-next`
+
 # vercel-app-playground
 
 Porting https://github.com/vercel/app-playground to Vite ([`@hiogawa/react-server`](https://github.com/hi-ogawa/vite-plugins/tree/main/packages/react-server)) (See https://github.com/hi-ogawa/rsc-on-vite/issues/5 for the progress)
