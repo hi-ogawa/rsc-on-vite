@@ -1,11 +1,11 @@
 "use server";
 
-import { redirect, useActionContext } from "@hiogawa/react-server/server";
+import { redirect, revalidatePath } from "@hiogawa/react-server/server";
 import { fakeContacts } from "./_data";
 import { tinyassert } from "@hiogawa/utils";
 
 export async function actionDeleteContact(id: string) {
-  useActionContext().revalidate = true;
+  revalidatePath("/");
   const contact = await fakeContacts.get(id);
   tinyassert(contact);
   fakeContacts.destroy(contact.id);

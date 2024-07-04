@@ -1,6 +1,6 @@
 import {
   createError,
-  useActionContext,
+  revalidatePath,
   type PageProps,
 } from "@hiogawa/react-server/server";
 import { fakeContacts, getContact, type ContactRecord } from "../../_data";
@@ -70,7 +70,7 @@ function Favorite(props: { contact: ContactRecord }) {
     <form
       action={async (formData: FormData) => {
         "use server";
-        useActionContext().revalidate = true;
+        revalidatePath("/");
         await fakeContacts.set(id, {
           favorite: formData.get("favorite") === "true",
         });

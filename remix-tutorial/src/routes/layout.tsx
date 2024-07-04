@@ -1,8 +1,9 @@
+import "../app.css";
 import { Link, LinkForm } from "@hiogawa/react-server/client";
 import { fakeContacts, getContacts } from "./_data";
 import {
   redirect,
-  useActionContext,
+  revalidatePath,
   type LayoutProps,
 } from "@hiogawa/react-server/server";
 import { GlobalPendingOverlay } from "./_client";
@@ -85,7 +86,7 @@ export default async function Layout(props: LayoutProps) {
 
 async function createNewContact() {
   "use server";
-  useActionContext().revalidate = true;
+  revalidatePath("/");
   const contact = await fakeContacts.create({});
   throw redirect(`/contacts/${contact.id}/edit`);
 }

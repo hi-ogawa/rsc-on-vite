@@ -1,7 +1,7 @@
 import {
   createError,
   redirect,
-  useActionContext,
+  revalidatePath,
   type PageProps,
 } from "@hiogawa/react-server/server";
 import { fakeContacts, getContact } from "../../../_data";
@@ -17,7 +17,7 @@ export default async function EditContact(props: PageProps) {
     <form
       action={async (formData: FormData) => {
         "use server";
-        useActionContext().revalidate = true;
+        revalidatePath("/");
         await fakeContacts.set(contact.id, Object.fromEntries(formData));
         throw redirect(`/contacts/${contact.id}`);
       }}
