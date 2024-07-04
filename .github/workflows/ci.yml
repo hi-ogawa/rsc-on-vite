@@ -43,3 +43,4 @@ jobs:
       - run: pnpm i
       - run: pnpm lint-check
       - run: pnpm tsc
+      - run: pnpm cf-build
