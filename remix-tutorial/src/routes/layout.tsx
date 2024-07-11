@@ -32,7 +32,7 @@ export default async function Layout(props: LayoutProps) {
             </a>
           </h1>
           <div>
-            <LinkForm action="/" id="search-form" role="search" revalidate>
+            <LinkForm action="/" id="search-form" role="search" revalidate="/">
               <input
                 aria-label="Search contacts"
                 id="q"
