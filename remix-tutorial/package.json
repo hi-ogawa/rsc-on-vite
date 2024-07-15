@@ -16,7 +16,7 @@
     "cf-release": "cd misc/cloudflare-workers && wrangler deploy"
   },
   "dependencies": {
-    "@hiogawa/react-server": "0.3.2",
+    "@hiogawa/react-server": "0.3.3",
     "react": "rc",
     "react-dom": "rc",
     "react-server-dom-webpack": "rc"

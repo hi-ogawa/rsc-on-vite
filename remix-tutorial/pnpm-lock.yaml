@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@hiogawa/react-server':
-    specifier: 0.3.2
-    version: 0.3.2(react-dom@19.0.0-rc-85acf2d195-20240711)(react-server-dom-webpack@19.0.0-rc-85acf2d195-20240711)(react@19.0.0-rc-85acf2d195-20240711)(vite@5.2.10)
+    specifier: 0.3.3
+    version: 0.3.3(react-dom@19.0.0-rc-85acf2d195-20240711)(react-server-dom-webpack@19.0.0-rc-85acf2d195-20240711)(react@19.0.0-rc-85acf2d195-20240711)(vite@5.2.10)
   react:
     specifier: rc
     version: 19.0.0-rc-85acf2d195-20240711
@@ -749,8 +749,8 @@ packages:
     engines: {node: '>=14'}
     dev: true
 
-  /@hiogawa/react-server@0.3.2(react-dom@19.0.0-rc-85acf2d195-20240711)(react-server-dom-webpack@19.0.0-rc-85acf2d195-20240711)(react@19.0.0-rc-85acf2d195-20240711)(vite@5.2.10):
-    resolution: {integrity: sha512-NZ+2tm4+54MR2N3dR+0mg675gegU6IE98+W3F3kLO/iLq0b0q4Qsc5wTZD7AWSC55kSvC1JVrqoTDQlsTjiG6Q==}
+  /@hiogawa/react-server@0.3.3(react-dom@19.0.0-rc-85acf2d195-20240711)(react-server-dom-webpack@19.0.0-rc-85acf2d195-20240711)(react@19.0.0-rc-85acf2d195-20240711)(vite@5.2.10):
+    resolution: {integrity: sha512-0WKB9FDssiMD6gLhSIhXWUi85XIFAPZoLnsObtP1LUPnILAnKTZPvnlnM9CnI6UivVmVrhqL0XnhHsMJ6IaPMg==}
     peerDependencies:
       react: '*'
       react-dom: '*'
@@ -759,14 +759,12 @@ packages:
     dependencies:
       '@edge-runtime/cookies': 4.1.1
       '@hiogawa/transforms': 0.0.0
-      '@hiogawa/vite-plugin-ssr-middleware': 0.0.3(vite@5.2.10)
       '@tanstack/history': 1.26.3
       es-module-lexer: 1.5.0
       fast-glob: 3.3.2
       react: 19.0.0-rc-85acf2d195-20240711
       react-dom: 19.0.0-rc-85acf2d195-20240711(react@19.0.0-rc-85acf2d195-20240711)
       react-server-dom-webpack: 19.0.0-rc-85acf2d195-20240711(react-dom@19.0.0-rc-85acf2d195-20240711)(react@19.0.0-rc-85acf2d195-20240711)(webpack@5.91.0)
-      use-sync-external-store: 1.2.0(react@19.0.0-rc-85acf2d195-20240711)
       vite: 5.2.10
     dev: false
 
@@ -792,6 +790,7 @@ packages:
       vite: '*'
     dependencies:
       vite: 5.2.10
+    dev: true
 
   /@jridgewell/gen-mapping@0.3.5:
     resolution: {integrity: sha512-IzL8ZoEDIBRWEzlCcRhOaCupYyN5gdIK+Q6fbFdPDg6HqX6jpkItn7DFIpW9LQzXG6Df9sA7+OKnq0qlz/GaQg==}
@@ -2110,14 +2109,6 @@ packages:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
     dependencies:
       punycode: 2.3.1
-    dev: false
-
-  /use-sync-external-store@1.2.0(react@19.0.0-rc-85acf2d195-20240711):
-    resolution: {integrity: sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      react: 19.0.0-rc-85acf2d195-20240711
     dev: false
 
   /vite@5.2.10:
