@@ -146,12 +146,17 @@ const reactServerViteConfig: InlineConfig = {
 	},
 	ssr: {
 		// bundle react-server runtime
+		// NOTE:
+		// technically this only needs to include packages which imports react,
+		// which can be collected by vitefu's crawlFrameworkPkgs
+		// https://github.com/hi-ogawa/vite-plugins/blob/9c39f3db453520f73bba9689ff64f9839591e1f6/packages/react-server/src/plugin/index.ts#L535-L544
 		noExternal: true,
 		resolve: {
 			conditions: ["react-server"],
 		},
 		optimizeDeps: {
 			include: [
+				// `noExternal` cjs needs to be optimized
 				"react",
 				"react/jsx-runtime",
 				"react/jsx-dev-runtime",
